@@ -1,0 +1,87 @@
+20171025_23:42:27:282  INFO LoggerExample.MainPage Sample informational message, k=636445717470710964, l=636445717470710964
+20171025_23:42:27:331 DEBUG LoggerExample.MainPage Sample debug message, k=636445717470710964, l=636445717470710964
+20171025_23:42:27:340  INFO LoggerExample.MainPage Sample informational message, k=636445717470710964, l=636445717470710964
+20171025_23:42:27:340  WARN LoggerExample.MainPage Sample warning message, k=636445717470710964, l=636445717470710964
+20171025_23:42:27:357 ERROR LoggerExample.MainPage Sample error message, k=636445717470710964, l=636445717470710964
+20171025_23:42:27:357 FATAL LoggerExample.MainPage Sample fatal error message, k=636445717470710964, l=636445717470710964
+20171025_23:42:27:372  INFO LoggerExample.MainPage Sample informational message, k=636445717470710964, l=636445717470710964
+20171025_23:42:27:372 DEBUG   App debug log message 
+20171025_23:42:27:388  INFO   App info log message 
+20171025_23:42:27:388  WARN   App warn log message 
+20171025_23:42:27:402 DEBUG   App debug log message 
+20171025_23:42:27:402  INFO   App info log message 
+20171025_23:42:27:417  WARN   App warn log message 
+20171025_23:42:27:417 DEBUG   App debug log message 
+20171025_23:42:27:432  INFO   App info log message 
+20171025_23:42:27:432  WARN   App warn log message 
+20171025_23:42:27:457 DEBUG   App debug log message 
+20171025_23:42:27:478  INFO   App info log message 
+20171025_23:42:27:486  WARN   App warn log message 
+20171025_23:42:27:500 DEBUG   App debug log message 
+20171025_23:42:27:500  INFO   App info log message 
+20171025_23:42:27:518  WARN   App warn log message 
+20171025_23:42:27:536 DEBUG   App debug log message 
+20171025_23:42:27:548  INFO   App info log message 
+20171025_23:42:27:559  WARN   App warn log message 
+20171025_23:42:27:559 DEBUG   App debug log message 
+20171025_23:42:27:600  INFO   App info log message 
+20171025_23:42:27:613  WARN   App warn log message 
+20171025_23:42:27:621 DEBUG   App debug log message 
+20171025_23:42:27:621  INFO   App info log message 
+20171025_23:42:27:637  WARN   App warn log message 
+20171025_23:42:27:637 DEBUG   App debug log message 
+20171025_23:42:27:652  INFO   App info log message 
+20171025_23:42:27:652  WARN   App warn log message 
+20171025_23:42:27:668 DEBUG   App debug log message 
+20171025_23:42:27:668  INFO   App info log message 
+20171025_23:42:27:692  WARN   App warn log message 
+20171025_23:42:27:761 ERROR  User error log message 
+20171025_23:42:27:761 FATAL  User fatal log message
+20171025_23:42:27:812 DEBUG  User debug log message
+20171025_23:42:27:812  INFO  User info log message
+20171025_23:42:27:829  WARN  User warn log message
+20171025_23:42:27:838 ERROR  User error log message 
+20171025_23:42:27:838 FATAL  User fatal log message
+20171025_23:42:27:854 DEBUG  User debug log message
+20171025_23:42:27:854  INFO  User info log message
+20171025_23:42:27:873  WARN  User warn log message
+20171025_23:42:27:873 ERROR  User error log message 
+20171025_23:42:27:888 FATAL  User fatal log message
+20171025_23:42:27:888 DEBUG  User debug log message
+20171025_23:42:27:902  INFO  User info log message
+20171025_23:42:27:902  WARN  User warn log message
+20171025_23:42:27:902 ERROR  User error log message 
+20171025_23:42:27:985 FATAL  User fatal log message
+20171025_23:42:27:985 DEBUG  User debug log message
+20171025_23:42:27:996  INFO  User info log message
+20171025_23:42:27:996  WARN  User warn log message
+20171025_23:42:28:012 ERROR  User error log message 
+20171025_23:42:28:012 FATAL  User fatal log message
+20171025_23:42:28:033 DEBUG  User debug log message
+20171025_23:42:28:033  INFO  User info log message
+20171025_23:42:28:046  WARN  User warn log message
+20171025_23:42:28:046 ERROR  User error log message 
+20171025_23:42:28:058 FATAL  User fatal log message
+20171025_23:42:28:058 DEBUG  User debug log message
+20171025_23:42:28:058  INFO  User info log message
+20171025_23:42:28:127  WARN  User warn log message
+20171025_23:42:28:127 ERROR  User error log message 
+20171025_23:42:28:140 FATAL  User fatal log message
+20171025_23:42:28:175 DEBUG  User debug log message
+20171025_23:42:28:175  INFO  User info log message
+20171025_23:42:28:185  WARN  User warn log message
+20171025_23:42:28:185 ERROR  User error log message 
+20171025_23:42:28:200 FATAL  User fatal log message
+20171025_23:42:28:200 DEBUG  User debug log message
+20171025_23:42:28:217  INFO  User info log message
+20171025_23:42:28:217  WARN  User warn log message
+20171025_23:42:28:229 ERROR  User error log message 
+20171025_23:42:28:229 FATAL  User fatal log message
+20171025_23:42:28:229 DEBUG  User debug log message
+20171025_23:42:28:247  INFO  User info log message
+20171025_23:42:28:247  WARN  User warn log message
+20171025_23:42:28:247 ERROR  User error log message 
+20171025_23:42:28:265 FATAL  User fatal log message
+20171025_23:42:28:265 DEBUG  User debug log message
+20171025_23:42:28:277  INFO  User info log message
+20171025_23:42:28:277  WARN  User warn log message
