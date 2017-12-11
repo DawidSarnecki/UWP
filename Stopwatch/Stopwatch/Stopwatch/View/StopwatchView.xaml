@@ -58,6 +58,8 @@
                     LAP
                 </Button>
             </StackPanel>
+            <TextBlock Text="Stopwatch is working now."
+                       Visibility="{Binding Running, Converter={StaticResource boolToVisisbilityConverter}}" />
         </StackPanel>
         
 

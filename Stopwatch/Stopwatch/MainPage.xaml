@@ -19,6 +19,6 @@
     </Page.Background>
 
     <Grid>
-        <view:StopwatchView Grid.Row="1" Margin="100"/>
+        <view:StopwatchView Grid.Row="1" Margin="100" RequestedTheme="Light"/>
     </Grid>
 </Page>
