@@ -39,22 +39,22 @@
             </TextBlock>
             <StackPanel Orientation="Horizontal">
                 <Button Name="StartButton"
-                        IsEnabled="{Binding Running, Converter={StaticResource boolNotConverter}}" 
-                        Click="StartButton_Click">
+                        IsEnabled="{Binding Running, Converter={StaticResource boolNotConverter}}"
+                        Command="{Binding Start}">
                     START
                 </Button>
                 <Button Name="StopButton"
                         IsEnabled="{Binding Running}"
-                        Click="StopButton_Click">
+                        Command="{Binding Stop}">
                     STOP
                 </Button>
                 <Button Name="ResetButton"
-                        Click="ResetButton_Click">
+                        Command="{Binding Reset}">
                     RESET
                 </Button>
                 <Button Name="LapButton"
                         IsEnabled="{Binding Running}"
-                        Click="LapButton_Click">
+                        Command="{Binding Lap}">
                     LAP
                 </Button>
             </StackPanel>

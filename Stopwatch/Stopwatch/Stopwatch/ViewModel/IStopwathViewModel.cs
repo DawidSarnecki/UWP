@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Stopwatch.ViewModel
 {
@@ -22,12 +23,12 @@ namespace Stopwatch.ViewModel
 
         decimal LapSeconds { get; }
 
-        void Start();
+        ICommand Start { get; }
 
-        void Stop();
+        ICommand Stop { get; }
 
-        void Reset();
+        ICommand Reset { get; }
 
-        void Lap();
+        ICommand Lap { get; }
     }
 }

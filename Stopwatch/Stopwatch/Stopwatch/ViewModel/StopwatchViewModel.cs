@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using Windows.UI.Xaml;
 using Stopwatch.Model;
+using System.Windows.Input;
 
 namespace Stopwatch.ViewModel
 {
@@ -99,26 +100,14 @@ namespace Stopwatch.ViewModel
                 OnPropertyChanged(nameof(LapSeconds));
             }
         }
-    
-        public void Lap()
-        {
-            _stopwathModel.Lap();
-        }
 
-        public void Reset()
-        {
-            _stopwathModel.Reset();
-        }
+        public ICommand Lap => new RelayCommand((object arg) => _stopwathModel.Lap());
 
-        public void Start()
-        {
-            _stopwathModel.Start();
-        }
+        public ICommand Start => new RelayCommand((object arg) => _stopwathModel.Start());
 
-        public void Stop()
-        {
-            _stopwathModel.Stop();
-        }
+        public ICommand Stop => new RelayCommand((object arg) => _stopwathModel.Stop());
+
+        public ICommand Reset => new RelayCommand((object arg) => _stopwathModel.Reset());
 
         protected void OnPropertyChanged(string propertyName)
         {

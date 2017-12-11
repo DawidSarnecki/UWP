@@ -23,25 +23,5 @@ namespace Stopwatch.View
         {
             this.InitializeComponent();
         }
-
-        private void StartButton_Click(object sender, RoutedEventArgs e)
-        {
-            viewModel.Start(); 
-        }
-
-        private void StopButton_Click(object sender, RoutedEventArgs e)
-        {
-            viewModel.Stop();
-        }
-
-        private void ResetButton_Click(object sender, RoutedEventArgs e)
-        {
-            viewModel.Reset();
-        }
-
-        private void LapButton_Click(object sender, RoutedEventArgs e)
-        {
-            viewModel.Lap();
-        }
     }
 }
