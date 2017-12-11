@@ -15,6 +15,8 @@
         <!--ViewmModel class has to be public-->
         <viewmodel:StopwatchViewModel x:Name="viewModel" />
         <converters:TimeToNumberConverter x:Name="timeToNumberConverter" />
+        <converters:BoolNotConverter x:Name="boolNotConverter" />
+        <converters:BoolToVisibilityConverter x:Name="boolToVisisbilityConverter" />
     </UserControl.Resources>
  
     <Grid DataContext="{StaticResource ResourceKey=viewModel}">
@@ -36,10 +38,25 @@
                 <Run Text="{Binding LapSeconds, Converter={StaticResource timeToNumberConverter}}"></Run>
             </TextBlock>
             <StackPanel Orientation="Horizontal">
-                <Button Name="StartButton" Click="StartButton_Click">START</Button>
-                <Button Name="StopButton" Click="StopButton_Click">STOP</Button>
-                <Button Name="ResetButton" Click="ResetButton_Click">RESET</Button>
-                <Button Name="LapButton" Click="LapButton_Click">LAP</Button>
+                <Button Name="StartButton"
+                        IsEnabled="{Binding Running, Converter={StaticResource boolNotConverter}}" 
+                        Click="StartButton_Click">
+                    START
+                </Button>
+                <Button Name="StopButton"
+                        IsEnabled="{Binding Running}"
+                        Click="StopButton_Click">
+                    STOP
+                </Button>
+                <Button Name="ResetButton"
+                        Click="ResetButton_Click">
+                    RESET
+                </Button>
+                <Button Name="LapButton"
+                        IsEnabled="{Binding Running}"
+                        Click="LapButton_Click">
+                    LAP
+                </Button>
             </StackPanel>
         </StackPanel>
         

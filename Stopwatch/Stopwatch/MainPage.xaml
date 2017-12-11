@@ -11,8 +11,14 @@
     <Page.Resources>
         <x:String x:Key="AppName">My Stopwatch</x:String>
     </Page.Resources>
+    <Page.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF9CEAE5"/>
+            <GradientStop Color="#FFBEBCDA" Offset="1"/>
+        </LinearGradientBrush>
+    </Page.Background>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid>
         <view:StopwatchView Grid.Row="1" Margin="100"/>
     </Grid>
 </Page>

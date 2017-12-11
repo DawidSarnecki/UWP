@@ -1,5 +1,5 @@
 ﻿
-namespace Stopwatch.Stopwatch.Converters
+namespace Stopwatch.Converters
 {
     using System;
     using Windows.UI.Xaml.Data;
