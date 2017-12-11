@@ -8,30 +8,32 @@
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400"
-    xmlns:viewmodel="using:Stopwatch.ViewModel">
-
+    xmlns:viewmodel="using:Stopwatch.ViewModel"
+    xmlns:converters="using:Stopwatch.Converters">
+    
     <UserControl.Resources>
-        <!--ViewmModel class have to be public-->
+        <!--ViewmModel class has to be public-->
         <viewmodel:StopwatchViewModel x:Name="viewModel" />
+        <converters:TimeToNumberConverter x:Name="timeToNumberConverter" />
     </UserControl.Resources>
  
     <Grid DataContext="{StaticResource ResourceKey=viewModel}">
         <StackPanel>
             <TextBlock>
                 <Run> Measured Time</Run>
-                <Run Text="{Binding LastHours}"></Run>
+                <Run Text="{Binding LastHours, Converter={StaticResource timeToNumberConverter}}"></Run>
                 <Run>:</Run>
-                <Run Text="{Binding LastMinutes}"></Run>
+                <Run Text="{Binding LastMinutes, Converter={StaticResource timeToNumberConverter}, ConverterParameter=d2}"></Run>
                 <Run>:</Run>
-                <Run Text="{Binding LastSeconds}"></Run>
+                <Run Text="{Binding LastSeconds, Converter={StaticResource timeToNumberConverter}}"></Run>
             </TextBlock>
             <TextBlock>
                  <Run> Last Lap Time</Run>
-                <Run Text="{Binding LapHours}"></Run>
+                <Run Text="{Binding LapHours, Converter={StaticResource timeToNumberConverter}}"></Run>
                 <Run>:</Run>
-                <Run Text="{Binding LapMinutes}"></Run>
+                <Run Text="{Binding LapMinutes, Converter={StaticResource timeToNumberConverter}, ConverterParameter=d2}"></Run>
                 <Run>:</Run>
-                <Run Text="{Binding LapSeconds}"></Run>
+                <Run Text="{Binding LapSeconds, Converter={StaticResource timeToNumberConverter}}"></Run>
             </TextBlock>
             <StackPanel Orientation="Horizontal">
                 <Button Name="StartButton" Click="StartButton_Click">START</Button>

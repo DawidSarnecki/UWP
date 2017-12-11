@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Stopwatch.Utilities;
 using System.ComponentModel;
+using Windows.UI.Xaml;
+using Stopwatch.Model;
 
 namespace Stopwatch.ViewModel
 {
-    using Stopwatch.Model;
-    using Windows.UI.Xaml;
-
     public class StopwatchViewModel : IStopwathViewModel, INotifyPropertyChanged
     {
         private IStopwathModel _stopwathModel;
@@ -21,13 +15,15 @@ namespace Stopwatch.ViewModel
 
         private int _lasMinutes;
 
-        private int _lastSeconds;
+        private decimal _lastSeconds;
+
+        private bool _lastRunning;
 
         private int _lapHours;
 
         private int _lapMinutes;
 
-        private int _lapSeconds;
+        private decimal _lapSeconds;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -37,13 +33,13 @@ namespace Stopwatch.ViewModel
 
         public int LastMinutes => GetMinutes(_stopwathModel.Elapsed);
 
-        public int LastSeconds => GetSeconds(_stopwathModel.Elapsed);
+        public decimal LastSeconds => GetSeconds(_stopwathModel.Elapsed);
 
         public int LapHours => GetHours(_stopwathModel.LapTime);
 
         public int LapMinutes => GetMinutes(_stopwathModel.LapTime);
 
-        public int LapSeconds => GetSeconds(_stopwathModel.LapTime);
+        public decimal LapSeconds => GetSeconds(_stopwathModel.LapTime);
 
         public StopwatchViewModel()
         {
@@ -58,6 +54,12 @@ namespace Stopwatch.ViewModel
 
         private void TimerTick(object sender, object e)
         {
+            if (_lastRunning != Running)
+            {
+                _lastRunning = Running;
+                OnPropertyChanged(nameof(Running));
+            }
+
             if (_lastHours != LastHours)
             {
                 _lastHours = LastHours;
@@ -87,7 +89,7 @@ namespace Stopwatch.ViewModel
 
             if (_lapMinutes != LapMinutes)
             {
-                _lasMinutes = LapMinutes;
+                _lapMinutes = LapMinutes;
                 OnPropertyChanged(nameof(LapMinutes));
             }
 
@@ -137,9 +139,9 @@ namespace Stopwatch.ViewModel
             return measuredTime.HasValue ? measuredTime.Value.Minutes : 0;
         }
 
-        private int GetSeconds(TimeSpan? measuredTime)
+        private decimal GetSeconds(TimeSpan? measuredTime)
         {
-            return measuredTime.HasValue ? measuredTime.Value.Seconds : 0;
+            return measuredTime.HasValue ? measuredTime.Value.Seconds + (measuredTime.Value.Milliseconds * .001M) : 0.0M;
         }
 
 

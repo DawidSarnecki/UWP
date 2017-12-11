@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 
 namespace Stopwatch.ViewModel
 {
-    using Stopwatch.Utilities;
-
     interface IStopwathViewModel
     {
         bool Running { get; }
@@ -16,13 +14,13 @@ namespace Stopwatch.ViewModel
 
         int LastMinutes { get; }
 
-        int LastSeconds { get; }
+        decimal LastSeconds { get; }
 
         int LapHours { get; }
 
         int LapMinutes { get; }
 
-        int LapSeconds { get; }
+        decimal LapSeconds { get; }
 
         void Start();
 

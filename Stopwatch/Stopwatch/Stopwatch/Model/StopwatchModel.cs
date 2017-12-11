@@ -18,7 +18,7 @@ namespace Stopwatch.Model
 
         public TimeSpan? Elapsed => CalculateElpapsedTime();
 
-        public TimeSpan? LapTime { get; private set; }
+        public TimeSpan? LapTime { get;  private set; }
 
         public event EventHandler<LapWasDoneEvent> LapTimeUpdated;
 
@@ -40,6 +40,7 @@ namespace Stopwatch.Model
             _startTime = null;
             _previousElapsedTime = null;
             LapTime = null;
+            OnLapTimeUpdated(LapTime);
         }
 
         public void Start()

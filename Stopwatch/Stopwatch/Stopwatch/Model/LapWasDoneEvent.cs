@@ -8,7 +8,7 @@ namespace Stopwatch.Model
 {
     class LapWasDoneEvent : EventArgs
     {
-        public TimeSpan? LapTime { get; private set; }
+        public TimeSpan? LapTime { get;  private set; }
         public LapWasDoneEvent(TimeSpan? lapTime)
         {
             LapTime = lapTime;
