@@ -11,6 +11,14 @@ namespace Stopwatch.ViewModel
     {
         bool Running { get; }
 
+        ICommand Start { get; }
+
+        ICommand Stop { get; }
+
+        ICommand Reset { get; }
+
+        ICommand Lap { get; }
+
         int LastHours { get; }
 
         int LastMinutes { get; }
@@ -22,13 +30,5 @@ namespace Stopwatch.ViewModel
         int LapMinutes { get; }
 
         decimal LapSeconds { get; }
-
-        ICommand Start { get; }
-
-        ICommand Stop { get; }
-
-        ICommand Reset { get; }
-
-        ICommand Lap { get; }
     }
 }

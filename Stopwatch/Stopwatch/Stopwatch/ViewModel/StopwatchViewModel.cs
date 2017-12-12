@@ -26,9 +26,15 @@ namespace Stopwatch.ViewModel
 
         private decimal _lapSeconds;
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
         public bool Running => _stopwathModel.Running;
+
+        public ICommand Lap => new RelayCommand((object arg) => _stopwathModel.Lap());
+
+        public ICommand Start => new RelayCommand((object arg) => _stopwathModel.Start());
+
+        public ICommand Stop => new RelayCommand((object arg) => _stopwathModel.Stop());
+
+        public ICommand Reset => new RelayCommand((object arg) => _stopwathModel.Reset());
 
         public int LastHours => GetHours(_stopwathModel.Elapsed);
 
@@ -41,6 +47,8 @@ namespace Stopwatch.ViewModel
         public int LapMinutes => GetMinutes(_stopwathModel.LapTime);
 
         public decimal LapSeconds => GetSeconds(_stopwathModel.LapTime);
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public StopwatchViewModel()
         {
@@ -100,14 +108,6 @@ namespace Stopwatch.ViewModel
                 OnPropertyChanged(nameof(LapSeconds));
             }
         }
-
-        public ICommand Lap => new RelayCommand((object arg) => _stopwathModel.Lap());
-
-        public ICommand Start => new RelayCommand((object arg) => _stopwathModel.Start());
-
-        public ICommand Stop => new RelayCommand((object arg) => _stopwathModel.Stop());
-
-        public ICommand Reset => new RelayCommand((object arg) => _stopwathModel.Reset());
 
         protected void OnPropertyChanged(string propertyName)
         {

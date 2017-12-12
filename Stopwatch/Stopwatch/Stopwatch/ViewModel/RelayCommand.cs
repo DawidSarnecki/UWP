@@ -24,13 +24,6 @@ namespace Stopwatch.ViewModel
 
         public event EventHandler CanExecuteChanged;
 
-        //There is a little problem. This event should react on changes of _canExecute value so there is two ways to resolve: 
-        //1. way - manual handling changes of _canexecute value
-        //2. auto cycle checking and reaction after check
-        //I this situasion wpf library with CommandManager comes in handy.
-        // I can transfer responsibility of handle changes of _canexecute value to the CommanManager. To use this class add reference to PresentationCore library is necesary.
-        //There is no CommandManager on WindowsMobile or WindowsPhone.
-
         public bool CanExecute(object parameter)
         {
             return _canExecute == null ? true : _canExecute(parameter);
