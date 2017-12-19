@@ -12,11 +12,10 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using ManifestGenerator;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
+// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
-namespace Stopwatch
+namespace ManifestGenerator
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
@@ -25,8 +24,7 @@ namespace Stopwatch
     {
         public MainPage()
         {
-            //this.InitializeComponent();
-            StringNumberParser.ParseString();
+            this.InitializeComponent();
         }
     }
 }

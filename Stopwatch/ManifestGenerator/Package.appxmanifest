@@ -7,14 +7,14 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="1769edd9-236a-46cb-bb91-4220cf11b842"
+    Name="1151061e-2fc6-440e-be74-a0f42f13c3ee"
     Publisher="CN=AD"
-    Version="10.989.8554.0" />
+    Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="1769edd9-236a-46cb-bb91-4220cf11b842" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="1151061e-2fc6-440e-be74-a0f42f13c3ee" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-<DisplayName>Stopwatch</DisplayName>
+    <DisplayName>ManifestGenerator</DisplayName>
     <PublisherDisplayName>AD</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -30,12 +30,12 @@
   <Applications>
     <Application Id="App"
       Executable="$targetnametoken$.exe"
-      EntryPoint="Stopwatch.App">
+      EntryPoint="ManifestGenerator.App">
       <uap:VisualElements
-        DisplayName="Stopwatch"
+        DisplayName="ManifestGenerator"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="Stopwatch"
+        Description="ManifestGenerator"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />

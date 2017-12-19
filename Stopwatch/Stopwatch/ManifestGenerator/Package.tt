@@ -1,0 +1,118 @@
+﻿<#@ template debug="true" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#@ output extension=".appxmanifest" #>
+<#@ import namespace="System.Text" #>
+<#@ assembly name="EnvDTE" #>
+<#@ import namespace="System.IO" #>
+<#  
+	//source https://docs.microsoft.com/en-us/dotnet/api/envdte.configurationmanager.activeconfiguration?view=visualstudiosdk-2017
+	// Get data from Visual Studio
+	// source: https://docs.microsoft.com/en-us/visualstudio/modeling/how-to-dot-dot-dot-with-text-templates
+
+	string fileName = "injectedVersionNumber.txt";
+	string filePath = Host.ResolvePath(fileName);
+
+	string readLine = string.Empty;
+	string version = string.Empty;
+	const int LAST_VALUE = 0;
+	const int NUMBER_OF_SEQUENCES = 4;
+	const int NOT_VALID_FIRST_SEQUENCE_VALUE = 0;
+
+	// Loading file
+	if (!File.Exists(filePath))
+    {
+        throw new FileNotFoundException($"Given file: \"{filePath}\" does not exist!");
+    }
+
+    using (StreamReader streamReader = new StreamReader(filePath))
+    {
+        readLine = streamReader.ReadLine();
+        if (string.IsNullOrEmpty(readLine))
+        {
+            throw new FileLoadException($"Given file:\"{filePath}\" is empty or interrupted!");
+        }
+    }
+
+	// Parsing version number.
+	// source: https://msdn.microsoft.com/en-us/library/byy2946e(v=vs.110).aspx
+    // source https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-identity 
+    //there is a parser for string format like: "12222.5858.668.25"
+    string splitPattern = "[.]";
+    string[] splitResult = Regex.Split(readLine, splitPattern);
+    List<ushort> parsedResult = new List<ushort>();
+
+    foreach (var item in splitResult)
+    {
+        ushort parsedValue;
+        bool isParsed = ushort.TryParse(item, out parsedValue);
+        if (!isParsed)
+        {
+            throw new ArgumentException($"Icorrect value \"{item}\"! This value have to be from scope <{ushort.MinValue},{ushort.MaxValue}>.");
+        }
+        parsedResult.Add(parsedValue);
+    }
+
+    if (parsedResult.Count != NUMBER_OF_SEQUENCES)
+    {
+        throw new ArgumentOutOfRangeException($"Icorrect number of version sequences! The limit is: {NUMBER_OF_SEQUENCES}");
+    }
+
+	if(parsedResult[0] == NOT_VALID_FIRST_SEQUENCE_VALUE)
+	{
+		throw new ArgumentOutOfRangeException($"Icorrect first Value! The first value can not be equal {NOT_VALID_FIRST_SEQUENCE_VALUE}");
+	}
+	version = $"{parsedResult[0]}.{parsedResult[1]}.{parsedResult[3]}.{LAST_VALUE}";
+#>
+<?xml version="1.0" encoding="utf-8"?>
+
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  IgnorableNamespaces="uap mp">
+
+  <Identity
+    Name="1769edd9-236a-46cb-bb91-4220cf11b842"
+    Publisher="CN=AD"
+    Version="<#= version #>" />
+
+  <mp:PhoneIdentity PhoneProductId="1769edd9-236a-46cb-bb91-4220cf11b842" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+
+  <Properties>
+<DisplayName>Stopwatch</DisplayName>
+    <PublisherDisplayName>AD</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="x-generate"/>
+  </Resources>
+
+  <Applications>
+    <Application Id="App"
+      Executable="$targetnametoken$.exe"
+      EntryPoint="Stopwatch.App">
+      <uap:VisualElements
+        DisplayName="Stopwatch"
+        Square150x150Logo="Assets\Square150x150Logo.png"
+        Square44x44Logo="Assets\Square44x44Logo.png"
+        Description="Stopwatch"
+        BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
+        <uap:SplashScreen Image="Assets\SplashScreen.png" />
+      </uap:VisualElements>
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>
